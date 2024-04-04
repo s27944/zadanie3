@@ -6,7 +6,7 @@ namespace LegacyApp
     {
         public bool AddUser(string firstName, string lastName, string email, DateTime dateOfBirth, int clientId)
         {
-            if (IsFirstNameCorrect(firstName) || IsLastNameCorrect(lastName))
+            if (!IsFirstNameCorrect(firstName) || !IsLastNameCorrect(lastName))
             {
                 return false;
             }
@@ -89,12 +89,12 @@ namespace LegacyApp
 
         private static bool IsLastNameCorrect(string lastName)
         {
-            return string.IsNullOrEmpty(lastName);
+            return !string.IsNullOrEmpty(lastName);
         }
 
         private static bool IsFirstNameCorrect(string firstName)
         {
-            return string.IsNullOrEmpty(firstName);
+            return !string.IsNullOrEmpty(firstName);
         }
     }
 }
